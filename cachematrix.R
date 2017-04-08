@@ -1,9 +1,10 @@
 ## Put comments here that give an overall description of what your
 ## functions do
 
-## Write a short comment describing this function
+## makes a list of functions
 
 makeCacheMatrix <- function(x = matrix()) {
+  
   m<- NULL
   set<-function(y){
     x<<-y
@@ -12,12 +13,14 @@ makeCacheMatrix <- function(x = matrix()) {
   get<- function() x
   setinv <- function(inv) m<<-inv
   getinv <- function() m
+  # returning list
   list(get = get,set = set,getinv = getinv,setinv = setinv)
 
 }
 
 
-## Write a short comment describing this function
+## solves for inverse if value is changed, 
+##else gets from cachematrix
 
 cacheSolve <- function(x, ...) {
         ## Return a matrix that is the inverse of 'x'
@@ -29,5 +32,6 @@ cacheSolve <- function(x, ...) {
   data <- x$get()
   m<-solve(data, ...)
   x$setinv(m)
+  # returning inverse
   m
 }
